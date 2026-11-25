@@ -17,8 +17,3 @@ UNION ALL SELECT 'order_region -> market', count(*) FROM (
   SELECT order_region FROM staging.ventas GROUP BY 1 HAVING count(DISTINCT market) > 1) t
 UNION ALL SELECT 'order_country -> order_region (debe fallar)', count(*) FROM (
   SELECT order_country FROM staging.ventas GROUP BY 1 HAVING count(DISTINCT order_region) > 1) t;
-
-
-
-
-SELECT count(*) FROM staging.ventas;
