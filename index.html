@@ -123,15 +123,15 @@ dialog{border:1px solid var(--stone);border-radius:14px;background:var(--card);c
 <h2>Compra por categoría</h2>
 <p class="sub">Todo lo que necesitas en un solo lugar, con el mismo estándar de calidad.</p>
 <div class="cats">
-<a class="cat" href="#destacados"><b>Ropa</b><span>Mujer, hombre, niñas y niños</span></a>
-<a class="cat" href="#destacados"><b>Calzado</b><span>Casual, deportivo y tacos</span></a>
-<a class="cat" href="#destacados"><b>Deportes</b><span>Fútbol, béisbol, baloncesto, tenis, hockey y boxeo</span></a>
-<a class="cat" href="#destacados"><b>Golf</b><span>Palos, bolsas, guantes y pelotas</span></a>
 <a class="cat" href="#destacados"><b>Fitness</b><span>Cardio, fuerza y accesorios</span></a>
+<a class="cat" href="#destacados"><b>Calzado</b><span>Casual, deportivo y tacos</span></a>
+<a class="cat" href="#destacados"><b>Ropa</b><span>Mujer, hombre, niñas y niños</span></a>
+<a class="cat" href="#destacados"><b>Golf</b><span>Palos, bolsas, guantes y pelotas</span></a>
 <a class="cat" href="#destacados"><b>Aire libre</b><span>Camping, pesca y deportes acuáticos</span></a>
 <a class="cat" href="#destacados"><b>Fan Shop</b><span>Camisetas y artículos de equipos</span></a>
+<a class="cat" href="#destacados"><b>Libros</b><span>Libros para leer, estudiar y regalar</span></a>
+<a class="cat" href="#destacados"><b>Discos</b><span>Música, películas y videojuegos</span></a>
 <a class="cat" href="#destacados"><b>Tecnología</b><span>Computadoras, cámaras y electrónica</span></a>
-<a class="cat" href="#destacados"><b>Libros y entretenimiento</b><span>Libros, música, películas y videojuegos</span></a>
 <a class="cat" href="#destacados"><b>Mascotas</b><span>Alimento, juguetes y accesorios</span></a>
 <a class="cat" href="#destacados"><b>Salud y belleza</b><span>Cuidado personal y bienestar</span></a>
 <a class="cat more" href="#destacados"><b>Y más cada temporada</b><span>Vuelve seguido: siempre hay novedades</span></a>
@@ -205,7 +205,7 @@ var D={"Categorías":"Categories","Ofertas":"Deals","Envíos":"Shipping","Acerca
 "Ver ofertas de la semana":"See this week’s deals","Desde San Juan, Puerto Rico · Español e inglés":"From San Juan, Puerto Rico · Spanish and English",
 "4 velocidades de envío":"4 shipping speeds","· estándar a mismo día":"· standard to same day","Pago a tu manera":"Pay your way","· tarjeta, transferencia, efectivo":"· card, transfer, cash","Solo buena calidad":"Good quality only","· reglas iguales para todos":"· same rules for everyone",
 "Compra por categoría":"Shop by category","Todo lo que necesitas en un solo lugar, con el mismo estándar de calidad.":"Everything you need in one place, with the same quality standard.",
-"Ropa":"Clothing","Mujer, hombre, niñas y niños":"Women, men, girls and boys","Calzado":"Footwear","Casual, deportivo y tacos":"Casual, athletic and heels","Deportes":"Sports","Fútbol, béisbol, baloncesto, tenis, hockey y boxeo":"Soccer, baseball, basketball, tennis, hockey and boxing","Golf":"Golf","Palos, bolsas, guantes y pelotas":"Clubs, bags, gloves and balls","Fitness":"Fitness","Cardio, fuerza y accesorios":"Cardio, strength and accessories","Aire libre":"Outdoors","Camping, pesca y deportes acuáticos":"Camping, fishing and water sports","Fan Shop":"Fan Shop","Camisetas y artículos de equipos":"Team jerseys and gear","Tecnología":"Tech","Computadoras, cámaras y electrónica":"Computers, cameras and electronics","Libros y entretenimiento":"Books and entertainment","Libros, música, películas y videojuegos":"Books, music, movies and video games","Mascotas":"Pets","Alimento, juguetes y accesorios":"Food, toys and accessories","Salud y belleza":"Health and beauty","Cuidado personal y bienestar":"Personal care and wellness","Y más cada temporada":"And more every season","Vuelve seguido: siempre hay novedades":"Come back often: there’s always something new",
+"Ropa":"Apparel","Mujer, hombre, niñas y niños":"Women, men, girls and boys","Calzado":"Footwear","Casual, deportivo y tacos":"Casual, athletic and heels","Deportes":"Sports","Fútbol, béisbol, baloncesto, tenis, hockey y boxeo":"Soccer, baseball, basketball, tennis, hockey and boxing","Golf":"Golf","Palos, bolsas, guantes y pelotas":"Clubs, bags, gloves and balls","Fitness":"Fitness","Cardio, fuerza y accesorios":"Cardio, strength and accessories","Aire libre":"Outdoors","Camping, pesca y deportes acuáticos":"Camping, fishing and water sports","Fan Shop":"Fan Shop","Camisetas y artículos de equipos":"Team jerseys and gear","Tecnología":"Technology","Computadoras, cámaras y electrónica":"Computers, cameras and electronics","Libros":"Book Shop","Discos":"Discs Shop","Libros para leer, estudiar y regalar":"Books to read, study and give as gifts","Música, películas y videojuegos":"Music, movies and video games","Libros, música, películas y videojuegos":"Books, music, movies and video games","Mascotas":"Pet Shop","Alimento, juguetes y accesorios":"Food, toys and accessories","Salud y belleza":"Health and Beauty","Cuidado personal y bienestar":"Personal care and wellness","Y más cada temporada":"And more every season","Vuelve seguido: siempre hay novedades":"Come back often: there’s always something new",
 "Ofertas de la semana":"This week’s deals","¿A dónde enviamos?":"Where do we ship?","Elige tu región y mira cuándo puede llegar tu pedido.":"Pick your region and see when your order could arrive.","Región de entrega":"Delivery region",
 "Estados Unidos y Canadá":"United States and Canada","Latinoamérica":"Latin America","Europa":"Europe","Pacífico Asiático":"Asia Pacific","África":"Africa",
 "Pagas con tarjeta de débito, transferencia, efectivo o pago en línea. Si tu pedido se retrasa, te avisamos antes.":"Pay by debit card, bank transfer, cash or online payment. If your order is delayed, we’ll tell you first.",
@@ -259,8 +259,8 @@ walk();tr();
  if(!window.supabase||SB_URL.indexOf("TU-PROYECTO")>-1)return;
  sb=supabase.createClient(SB_URL,SB_KEY);
  sb.auth.onAuthStateChange(function(ev,s){user=s?s.user:null;if(user)setTimeout(sync,0);else items=[];ui()});
- var r=await sb.from("productos").select("id,nombre_es,nombre_en,precio,precio_anterior,dias_min,dias_max,categorias(nombre)").eq("activo",true).order("id").limit(60);
- if(!r.error&&r.data&&r.data.length){cur=r.data.map(function(p){return{id:p.id,es:p.nombre_es,en:p.nombre_en,cat:p.categorias?p.categorias.nombre:"",price:Number(p.precio),old:p.precio_anterior?Number(p.precio_anterior):null,a:p.dias_min,b:p.dias_max}});stat="Catálogo cargado desde la base de datos.";tr()}
+ var r=await sb.from("productos").select("id,nombre_es,nombre_en,precio,precio_anterior,dias_min,dias_max,categorias(nombre_es)").eq("activo",true).order("id").limit(60);
+ if(!r.error&&r.data&&r.data.length){cur=r.data.map(function(p){return{id:p.id,es:p.nombre_es,en:p.nombre_en,cat:p.categorias?p.categorias.nombre_es:"",price:Number(p.precio),old:p.precio_anterior?Number(p.precio_anterior):null,a:p.dias_min,b:p.dias_max}});stat="Catálogo cargado desde la base de datos.";tr()}
  var seen=false;try{seen=sessionStorage.getItem("mer-seen")}catch(e){}
  if(!seen){try{sessionStorage.setItem("mer-seen","1")}catch(e){}await sb.from("visitas").insert({pagina:"inicio",idioma:L})}
 }catch(e){console.error(e)}})();
