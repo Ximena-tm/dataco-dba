@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Meridiano · Calidad sin fronteras</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7F5F0;--card:#fff;--stone:#E7E3DB;--ink:#1D1D1F;--muted:#5b5a57;--gold:#D9A233;--goldink:#8A6410;--green:#1E7A4A;--red:#C8372D;--hero:#1D1D1F;--herotx:#F7F5F0;color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#151517;--card:#222225;--stone:#34342f;--ink:#F7F5F0;--muted:#b7b4ac;--goldink:#E8B957;--green:#4FC28A;--red:#F0766D;--hero:#222225;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#151517;--card:#222225;--stone:#34342f;--ink:#F7F5F0;--muted:#b7b4ac;--goldink:#E8B957;--green:#4FC28A;--red:#F0766D;--hero:#222225;color-scheme:dark}
+html{height:100%;scroll-padding-top:70px;scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 Inter,system-ui,sans-serif}
+h1,h2,h3,.serif{font-family:Fraunces,Georgia,serif;font-weight:500;letter-spacing:-.01em;margin:0}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--stone)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:12px}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;font:600 24px Fraunces,Georgia,serif}
+nav{display:flex;gap:18px;font-size:14px}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+@media(max-width:640px){nav{display:none}}
+.cart{background:var(--ink);color:var(--bg);border:0;border-radius:99px;padding:8px 14px;font:600 14px Inter,sans-serif;cursor:pointer}
+.btn{display:inline-block;background:var(--gold);color:#1D1D1F;border:0;border-radius:10px;padding:13px 22px;font:600 15px Inter,sans-serif;text-decoration:none;cursor:pointer}
+.btn:hover{filter:brightness(1.06)}
+:focus-visible{outline:3px solid var(--goldink);outline-offset:2px}
+.hero{background:var(--hero);color:var(--herotx);padding:56px 0 48px}
+.hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:center}
+@media(max-width:760px){.hero .wrap{grid-template-columns:1fr}.hero svg.big{max-width:180px}}
+.hero h1{font-size:clamp(40px,8vw,68px);line-height:1.04;font-weight:600}
+.hero p{color:#cfcbc2;max-width:42ch;margin:16px 0 24px}
+.hero .gold{color:var(--gold)}
+.hero small{display:block;margin-top:14px;color:#a9a59c;font-size:13px}
+section{padding:56px 0}
+h2{font-size:clamp(28px,5vw,38px);margin-bottom:8px}
+.sub{color:var(--muted);margin:0 0 28px;max-width:56ch}
+.trust{border-bottom:1px solid var(--stone);padding:18px 0;font-size:14px}
+.trust .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px 24px}
+.trust b{font-weight:600}
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.cat{background:var(--card);border:1px solid var(--stone);border-radius:12px;padding:16px;text-decoration:none;display:block}
+.cat:hover{border-color:var(--gold)}
+.cat b{font:500 18px Fraunces,Georgia,serif;display:block}
+.cat span{font-size:13px;color:var(--muted)}
+.cat.more{background:var(--gold);border-color:var(--gold);color:#1D1D1F}
+.cat.more span{color:#3a2d0a}
+.prods{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+.prod{background:var(--card);border:1px solid var(--stone);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.ph{aspect-ratio:4/3;background:var(--stone);display:grid;place-items:center;position:relative;font:500 64px Fraunces,Georgia,serif;color:var(--goldink)}
+.tag{position:absolute;top:10px;left:10px;background:var(--red);color:#fff;font:600 12px Inter,sans-serif;padding:3px 9px;border-radius:99px}
+.pb{padding:14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.pb .k{font-size:13px;color:var(--muted)}
+.pb h3{font-size:19px}
+.price{font:600 18px Inter,sans-serif}
+.price s{font-weight:400;font-size:14px;color:var(--muted);margin-left:6px}
+.ship{font-size:13px;color:var(--green);font-weight:500}
+.pb .btn{margin-top:auto;width:100%;text-align:center}
+.band{background:var(--card);border-block:1px solid var(--stone)}
+.calc{display:grid;grid-template-columns:1fr 1.4fr;gap:28px;align-items:start}
+@media(max-width:760px){.calc{grid-template-columns:1fr}}
+select{width:100%;padding:12px;border-radius:10px;border:1px solid var(--stone);background:var(--bg);color:var(--ink);font:400 16px Inter,sans-serif}
+label{display:block;font-weight:500;margin-bottom:8px}
+.speeds{display:grid;gap:10px}
+.sp{display:flex;justify-content:space-between;gap:12px;border:1px solid var(--stone);border-radius:12px;padding:12px 14px;background:var(--bg)}
+.sp b{display:block}.sp small{color:var(--muted)}
+.sp .p{font-weight:600;white-space:nowrap}
+.pay{margin-top:18px;font-size:14px;color:var(--muted)}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+@media(max-width:760px){.about{grid-template-columns:1fr}}
+.about p{max-width:56ch}
+.promise{border-left:4px solid var(--gold);background:var(--card);padding:14px 16px;border-radius:0 12px 12px 0;margin:20px 0}
+.mean{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.mean li{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start}
+.mean svg{background:var(--hero);border-radius:10px;padding:6px}
+.mean b{display:block}.mean span{font-size:14px;color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px 28px;margin-top:36px}
+.facts dt{font-size:13px;color:var(--goldink);font-weight:600}
+.facts dd{margin:2px 0 0;font-size:15px}
+.voice{font-size:14px;color:var(--muted);margin-top:28px}
+footer{background:var(--hero);color:#cfcbc2;padding:36px 0;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+footer .serif{color:var(--herotx);font-size:22px}
+#toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,120px);background:var(--ink);color:var(--bg);padding:12px 18px;border-radius:12px;font-size:14px;transition:transform .25s;z-index:9;max-width:90vw}
+#toast.on{transform:translate(-50%,0)}
+@media(prefers-reduced-motion:reduce){#toast{transition:none}html{scroll-behavior:auto}}
+.lg{background:transparent;color:var(--ink);border:1px solid var(--stone)}
+dialog{border:1px solid var(--stone);border-radius:14px;background:var(--card);color:var(--ink);padding:20px;width:min(420px,92vw)}dialog::backdrop{background:rgba(0,0,0,.55)}input{width:100%;padding:12px;margin:0 0 12px;border-radius:10px;border:1px solid var(--stone);background:var(--bg);color:var(--ink);font:16px Inter,sans-serif}.row{display:flex;gap:8px;flex-wrap:wrap}.lgb{background:transparent;color:var(--ink);border:1px solid var(--stone)}.ci{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--stone)}#am{color:var(--red);font-size:14px;min-height:1em}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="mk" viewBox="0 0 48 48"><g fill="none" stroke="currentColor" stroke-width="3.2"><circle cx="22" cy="26" r="17"/><ellipse cx="22" cy="26" rx="8" ry="17"/><path d="M5 26h34"/></g><circle cx="37" cy="10" r="5.5" fill="#D9A233"/></symbol></defs></svg>
+
+<header><div class="wrap">
+<a class="logo" href="#inicio" aria-label="Meridiano, inicio"><svg width="30" height="30"><use href="#mk"/></svg>Meridiano</a>
+<nav><a href="#categorias">Categorías</a><a href="#destacados">Ofertas</a><a href="#envios">Envíos</a><a href="#nosotros">Acerca de nosotros</a></nav>
+<div style="display:flex;gap:8px"><button class="cart lg" id="ab" type="button">Entrar</button><button class="cart lg" id="lg" type="button" aria-label="Language">EN</button><button class="cart" id="cartBtn" type="button"><span>Carrito</span> (<span id="n">0</span>)</button></div>
+</div></header>
+
+<main id="inicio">
+<div class="hero"><div class="wrap">
+<div>
+<h1>Calidad <span class="gold">sin fronteras.</span></h1>
+<p>Ropa, tecnología, deportes y mucho más, con envío a cualquier región del mundo. Elige tu velocidad y te avisamos de cada paso.</p>
+<a class="btn" href="#destacados">Ver ofertas de la semana</a>
+<small>Desde San Juan, Puerto Rico · Español e inglés</small>
+</div>
+<svg class="big" viewBox="0 0 48 48" role="img" aria-label="Logotipo de Meridiano" style="color:var(--herotx);width:100%;max-width:280px;justify-self:center"><use href="#mk"/></svg>
+</div></div>
+
+<div class="trust"><div class="wrap">
+<div><b>4 velocidades de envío</b> · estándar a mismo día</div>
+<div><b>Pago a tu manera</b> · tarjeta, transferencia, efectivo</div>
+<div><b>Solo buena calidad</b> · reglas iguales para todos</div>
+</div></div>
+
+<section id="categorias"><div class="wrap">
+<h2>Compra por categoría</h2>
+<p class="sub">Todo lo que necesitas en un solo lugar, con el mismo estándar de calidad.</p>
+<div class="cats">
+<a class="cat" href="#destacados"><b>Ropa</b><span>Mujer, hombre, niñas y niños</span></a>
+<a class="cat" href="#destacados"><b>Calzado</b><span>Casual, deportivo y tacos</span></a>
+<a class="cat" href="#destacados"><b>Deportes</b><span>Fútbol, béisbol, baloncesto, tenis, hockey y boxeo</span></a>
+<a class="cat" href="#destacados"><b>Golf</b><span>Palos, bolsas, guantes y pelotas</span></a>
+<a class="cat" href="#destacados"><b>Fitness</b><span>Cardio, fuerza y accesorios</span></a>
+<a class="cat" href="#destacados"><b>Aire libre</b><span>Camping, pesca y deportes acuáticos</span></a>
+<a class="cat" href="#destacados"><b>Fan Shop</b><span>Camisetas y artículos de equipos</span></a>
+<a class="cat" href="#destacados"><b>Tecnología</b><span>Computadoras, cámaras y electrónica</span></a>
+<a class="cat" href="#destacados"><b>Libros y entretenimiento</b><span>Libros, música, películas y videojuegos</span></a>
+<a class="cat" href="#destacados"><b>Mascotas</b><span>Alimento, juguetes y accesorios</span></a>
+<a class="cat" href="#destacados"><b>Salud y belleza</b><span>Cuidado personal y bienestar</span></a>
+<a class="cat more" href="#destacados"><b>Y más cada temporada</b><span>Vuelve seguido: siempre hay novedades</span></a>
+</div></div></section>
+
+<section id="destacados" class="band"><div class="wrap">
+<h2>Ofertas de la semana</h2>
+<p class="sub" id="cstat"></p>
+<div class="prods" id="prods"></div>
+</div></section>
+
+<section id="envios"><div class="wrap calc">
+<div>
+<h2>¿A dónde enviamos?</h2>
+<p class="sub">Elige tu región y mira cuándo puede llegar tu pedido.</p>
+<label for="reg">Región de entrega</label>
+<select id="reg">
+<option value="0">Estados Unidos y Canadá</option>
+<option value="1">Latinoamérica</option>
+<option value="2">Europa</option>
+<option value="3">Pacífico Asiático</option>
+<option value="4">África</option>
+</select>
+<p class="pay">Pagas con tarjeta de débito, transferencia, efectivo o pago en línea. Si tu pedido se retrasa, te avisamos antes.</p>
+</div>
+<div class="speeds" id="speeds" aria-live="polite"></div>
+</div></section>
+
+<section id="nosotros" class="band"><div class="wrap">
+<h2>Acerca de nosotros</h2>
+<p class="sub">Somos Meridiano, una tienda departamental en línea de San Juan, Puerto Rico.</p>
+<div class="about">
+<div>
+<p>Un meridiano es una línea imaginaria que va de un polo al otro. Todo lugar del planeta está sobre uno, y todos comparten el mismo mapa.</p>
+<p>Ese es nuestro nombre: una tienda que conecta cualquier punto con cualquier otro, sin dejar fuera a ninguna región. Y es un guiño a nuestra casa, porque San Juan queda cerca de los 66° oeste.</p>
+<p class="promise"><b>Nuestro compromiso:</b> vender solo artículos de buena calidad y enviarlos a cualquier región con las mismas reglas para todos.</p>
+<p>Fundada en 2014, hicimos nuestros primeros envíos en enero de 2015. Hoy atendemos a personas, empresas y a quienes trabajan desde casa.</p>
+</div>
+<ul class="mean">
+<li><svg width="44" height="44" viewBox="0 0 48 48" style="color:#F7F5F0"><circle cx="24" cy="24" r="16" fill="none" stroke="currentColor" stroke-width="3.2"/></svg><div><b>El círculo</b><span>El mundo entero. Ninguna región queda fuera de nuestro mapa.</span></div></li>
+<li><svg width="44" height="44" viewBox="0 0 48 48" style="color:#F7F5F0"><ellipse cx="24" cy="24" rx="8" ry="16" fill="none" stroke="currentColor" stroke-width="3.2"/></svg><div><b>La elipse</b><span>Un meridiano, de polo a polo. Es la ruta de cada envío.</span></div></li>
+<li><svg width="44" height="44" viewBox="0 0 48 48" style="color:#F7F5F0"><path d="M6 24h36" stroke="currentColor" stroke-width="3.2"/></svg><div><b>La línea horizontal</b><span>El ecuador: equilibrio y trato igual para todos.</span></div></li>
+<li><svg width="44" height="44" viewBox="0 0 48 48"><circle cx="24" cy="24" r="7" fill="#D9A233"/></svg><div><b>El punto dorado</b><span>Tu pedido en camino. Lo valioso se marca con oro.</span></div></li>
+</ul>
+</div>
+<dl class="facts">
+<div><dt>Mercados</dt><dd>Latinoamérica, Europa, Pacífico Asiático, Estados Unidos y Canadá, y África</dd></div>
+<div><dt>Idiomas</dt><dd>Español e inglés</dd></div>
+<div><dt>Envío</dt><dd>Estándar, segunda clase, primera clase y mismo día</dd></div>
+<div><dt>Ubicación</dt><dd>San Juan, Puerto Rico · 18.4° N, 66.1° O</dd></div>
+</dl>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+<div><div class="serif">Meridiano</div>Calidad sin fronteras.</div>
+<div>Del Caribe a todo el mundo.<br>San Juan, Puerto Rico · Desde 2014</div>
+<div id="vw" style="width:100%;font-size:12px;opacity:.7"></div></div></footer>
+<dialog id="dlg"><form id="af"><h3 id="at">Iniciar sesión</h3><p></p>
+<label for="em">Correo</label><input id="em" type="email" required autocomplete="email">
+<label for="pw">Contraseña (mínimo 8 caracteres)</label><input id="pw" type="password" minlength="8" required autocomplete="current-password">
+<p id="am" role="alert"></p>
+<div class="row"><button class="btn" id="ab2" type="submit">Iniciar sesión</button><button type="button" class="btn lgb" id="sw">Crear cuenta</button><button type="button" class="btn lgb" id="x1">Cerrar</button></div></form></dialog>
+<dialog id="cd"><h3>Tu carrito</h3><div id="cl2"></div><p class="price" id="ct"></p><p id="nt"></p><div class="row"><button type="button" class="btn lgb" id="x2">Cerrar</button></div></dialog>
+<div id="toast" role="status"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>
+var D={"Categorías":"Categories","Ofertas":"Deals","Envíos":"Shipping","Acerca de nosotros":"About us","Carrito":"Cart","Calidad":"Quality","sin fronteras.":"without borders.","Calidad sin fronteras.":"Quality without borders.",
+"Ropa, tecnología, deportes y mucho más, con envío a cualquier región del mundo. Elige tu velocidad y te avisamos de cada paso.":"Clothing, tech, sports and much more, shipped to any region of the world. Pick your speed and we’ll keep you posted every step of the way.",
+"Ver ofertas de la semana":"See this week’s deals","Desde San Juan, Puerto Rico · Español e inglés":"From San Juan, Puerto Rico · Spanish and English",
+"4 velocidades de envío":"4 shipping speeds","· estándar a mismo día":"· standard to same day","Pago a tu manera":"Pay your way","· tarjeta, transferencia, efectivo":"· card, transfer, cash","Solo buena calidad":"Good quality only","· reglas iguales para todos":"· same rules for everyone",
+"Compra por categoría":"Shop by category","Todo lo que necesitas en un solo lugar, con el mismo estándar de calidad.":"Everything you need in one place, with the same quality standard.",
+"Ropa":"Clothing","Mujer, hombre, niñas y niños":"Women, men, girls and boys","Calzado":"Footwear","Casual, deportivo y tacos":"Casual, athletic and heels","Deportes":"Sports","Fútbol, béisbol, baloncesto, tenis, hockey y boxeo":"Soccer, baseball, basketball, tennis, hockey and boxing","Golf":"Golf","Palos, bolsas, guantes y pelotas":"Clubs, bags, gloves and balls","Fitness":"Fitness","Cardio, fuerza y accesorios":"Cardio, strength and accessories","Aire libre":"Outdoors","Camping, pesca y deportes acuáticos":"Camping, fishing and water sports","Fan Shop":"Fan Shop","Camisetas y artículos de equipos":"Team jerseys and gear","Tecnología":"Tech","Computadoras, cámaras y electrónica":"Computers, cameras and electronics","Libros y entretenimiento":"Books and entertainment","Libros, música, películas y videojuegos":"Books, music, movies and video games","Mascotas":"Pets","Alimento, juguetes y accesorios":"Food, toys and accessories","Salud y belleza":"Health and beauty","Cuidado personal y bienestar":"Personal care and wellness","Y más cada temporada":"And more every season","Vuelve seguido: siempre hay novedades":"Come back often: there’s always something new",
+"Ofertas de la semana":"This week’s deals","¿A dónde enviamos?":"Where do we ship?","Elige tu región y mira cuándo puede llegar tu pedido.":"Pick your region and see when your order could arrive.","Región de entrega":"Delivery region",
+"Estados Unidos y Canadá":"United States and Canada","Latinoamérica":"Latin America","Europa":"Europe","Pacífico Asiático":"Asia Pacific","África":"Africa",
+"Pagas con tarjeta de débito, transferencia, efectivo o pago en línea. Si tu pedido se retrasa, te avisamos antes.":"Pay by debit card, bank transfer, cash or online payment. If your order is delayed, we’ll tell you first.",
+"Somos Meridiano, una tienda departamental en línea de San Juan, Puerto Rico.":"We’re Meridiano, an online department store from San Juan, Puerto Rico.",
+"Un meridiano es una línea imaginaria que va de un polo al otro. Todo lugar del planeta está sobre uno, y todos comparten el mismo mapa.":"A meridian is an imaginary line running from one pole to the other. Every place on the planet sits on one, and everyone shares the same map.",
+"Ese es nuestro nombre: una tienda que conecta cualquier punto con cualquier otro, sin dejar fuera a ninguna región. Y es un guiño a nuestra casa, porque San Juan queda cerca de los 66° oeste.":"That’s our name: a store that connects any point with any other, leaving no region out. It’s also a nod to home, because San Juan sits close to 66° west.",
+"Nuestro compromiso:":"Our promise:","vender solo artículos de buena calidad y enviarlos a cualquier región con las mismas reglas para todos.":"to sell only good-quality items and ship them to any region with the same rules for everyone.",
+"Fundada en 2014, hicimos nuestros primeros envíos en enero de 2015. Hoy atendemos a personas, empresas y a quienes trabajan desde casa.":"Founded in 2014, we made our first shipments in January 2015. Today we serve individuals, businesses and people who work from home.",
+"El círculo":"The circle","El mundo entero. Ninguna región queda fuera de nuestro mapa.":"The whole world. No region is left off our map.","La elipse":"The ellipse","Un meridiano, de polo a polo. Es la ruta de cada envío.":"A meridian, pole to pole. It’s the route of every shipment.","La línea horizontal":"The horizontal line","El ecuador: equilibrio y trato igual para todos.":"The equator: balance and equal treatment for everyone.","El punto dorado":"The gold dot","Tu pedido en camino. Lo valioso se marca con oro.":"Your order on its way. What’s valuable is marked in gold.",
+"Mercados":"Markets","Latinoamérica, Europa, Pacífico Asiático, Estados Unidos y Canadá, y África":"Latin America, Europe, Asia Pacific, United States and Canada, and Africa","Idiomas":"Languages","Español e inglés":"Spanish and English","Envío":"Shipping","Estándar, segunda clase, primera clase y mismo día":"Standard, second class, first class and same day","Ubicación":"Location","San Juan, Puerto Rico · 18.4° N, 66.1° O":"San Juan, Puerto Rico · 18.4° N, 66.1° W",
+"Del Caribe a todo el mundo.":"From the Caribbean to the world.","San Juan, Puerto Rico · Desde 2014":"San Juan, Puerto Rico · Since 2014",
+"Estándar":"Standard","Segunda clase":"Second class","Primera clase":"First class","Mismo día":"Same day","Hoy, en zonas con cobertura":"Today, in covered areas","Llega en":"Arrives in","días":"days","Oferta":"Sale","Agregar al carrito":"Add to cart",
+"Catálogo de ejemplo: aún no hay base de datos conectada.":"Sample catalog: no database connected yet.","Catálogo cargado desde la base de datos.":"Catalog loaded from the database.","Vistas de la página":"Page views","agregado al carrito":"added to cart"};
+var S=[{es:"Camiseta deportiva",en:"Athletic t-shirt",cat:"Ropa",price:24.99,old:34.99,a:5,b:9},{es:"Tenis de correr",en:"Running shoes",cat:"Calzado",price:59.9,old:79.9,a:5,b:9},{es:"Audífonos inalámbricos",en:"Wireless headphones",cat:"Tecnología",price:39.5,a:3,b:7},{es:"Set de mancuernas",en:"Dumbbell set",cat:"Fitness",price:44,old:55,a:6,b:10},{es:"Bolsa de golf ligera",en:"Lightweight golf bag",cat:"Golf",price:89,a:6,b:10},{es:"Tienda de campaña 3 personas",en:"3-person tent",cat:"Aire libre",price:72,old:95,a:6,b:10}];
+var R=[["Estados Unidos y Canadá",[["Estándar","5–9","$5.99"],["Segunda clase","4–6","$9.99"],["Primera clase","2–4","$14.99"],["Mismo día",0,"$24.99"]]],["Latinoamérica",[["Estándar","7–12","$7.99"],["Segunda clase","5–8","$12.99"],["Primera clase","3–5","$18.99"],["Mismo día",0,"$27.99"]]],["Europa",[["Estándar","8–14","$9.99"],["Segunda clase","6–9","$15.99"],["Primera clase","4–6","$22.99"],["Mismo día",0,"$34.99"]]],["Pacífico Asiático",[["Estándar","9–15","$10.99"],["Segunda clase","7–10","$17.99"],["Primera clase","4–7","$24.99"],["Mismo día",0,"$36.99"]]],["África",[["Estándar","10–16","$11.99"],["Segunda clase","8–12","$19.99"],["Primera clase","5–8","$26.99"],["Mismo día",0,"$38.99"]]]];
+var L="es",c=0,tt,cur=S,stat="Catálogo de ejemplo: aún no hay base de datos conectada.",views=null,nodes=[];
+try{L=localStorage.getItem("mer-lang")||(/^en/i.test(navigator.language)?"en":"es")}catch(e){L=/^en/i.test(navigator.language)?"en":"es"}
+function T(s){return L==="en"&&D[s]?D[s]:s}
+function m(v){return"$"+Number(v).toFixed(2)}
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+function walk(){var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){var p=n.parentNode;if(!n.nodeValue.trim()||p.closest("script,style,#toast,#prods,#speeds,#vw,#at,#ab,#ab2,#sw,#cl2,#ct,#nt,#am"))return NodeFilter.FILTER_REJECT;return NodeFilter.FILTER_ACCEPT}});var n;while(n=w.nextNode())nodes.push([n,n.nodeValue])}
+function tr(){nodes.forEach(function(x){var s=x[1],k=s.trim(),l=s.slice(0,s.indexOf(k)),r=s.slice(s.indexOf(k)+k.length);x[0].nodeValue=l+T(k)+r});document.documentElement.lang=L;document.title=L==="en"?"Meridiano · Quality without borders":"Meridiano · Calidad sin fronteras";document.getElementById("lg").textContent=L==="en"?"ES":"EN";document.getElementById("cstat").textContent=T(stat);var o=document.getElementById("reg").options;for(var i=0;i<o.length;i++)o[i].textContent=T(R[i][0]);prods();sp();vw();ui()}
+function prods(){document.getElementById("prods").innerHTML=cur.map(function(p,i){var nm=L==="en"?p.en:p.es;return'<article class="prod"><div class="ph" aria-hidden="true">'+esc(nm.charAt(0))+(p.old?'<span class="tag">'+T("Oferta")+'</span>':'')+'</div><div class="pb"><span class="k">'+esc(T(p.cat))+'</span><h3>'+esc(nm)+'</h3><div class="price">'+m(p.price)+(p.old?'<s>'+m(p.old)+'</s>':'')+'</div><div class="ship">'+T("Llega en")+" "+esc(p.a)+"–"+esc(p.b)+" "+T("días")+'</div><button class="btn" type="button" data-i="'+i+'">'+T("Agregar al carrito")+'</button></div></article>'}).join("")}
+function sp(){var r=R[document.getElementById("reg").value];document.getElementById("speeds").innerHTML=r[1].map(function(s){return'<div class="sp"><div><b>'+T(s[0])+'</b><small>'+(s[1]?T("Llega en")+" "+s[1]+" "+T("días"):T("Hoy, en zonas con cobertura"))+'</small></div><div class="p">'+s[2]+'</div></div>'}).join("")}
+function vw(){document.getElementById("vw").textContent=views===null?"":T("Vistas de la página")+": "+views}
+function toast(s){var e=document.getElementById("toast");e.textContent=s;e.classList.add("on");clearTimeout(tt);tt=setTimeout(function(){e.classList.remove("on")},2200)}
+var SB_URL="https://TU-PROYECTO.supabase.co",SB_KEY="TU_CLAVE_ANON_PUBLICA",sb=null,user=null,items=[],md="in";
+var N={"Entrar":"Sign in","Salir":"Sign out","Crear cuenta":"Create account","Iniciar sesión":"Log in","Correo":"Email","Contraseña (mínimo 8 caracteres)":"Password (8 characters minimum)","Tu carrito":"Your cart","Cerrar":"Close","Quitar":"Remove","Total":"Total","Revisa tu correo para confirmar la cuenta.":"Check your email to confirm your account.","Falta conectar Supabase: completa SB_URL y SB_KEY en el archivo.":"Supabase isn’t connected: fill in SB_URL and SB_KEY in the file.","Ya tengo cuenta":"I already have an account","Inicia sesión para guardar tu carrito.":"Log in to save your cart across devices."};
+for(var k in N)D[k]=N[k];
+function el(i){return document.getElementById(i)}
+function ui(){var n=0,t=0,h="",u=md==="in";items.forEach(function(i){n+=i.q;t+=i.p.price*i.q;h+='<div class="ci"><span>'+esc(L==="en"?i.p.en:i.p.es)+' × '+i.q+'</span><span>'+m(i.p.price*i.q)+' <button class="lgb btn" style="padding:4px 10px" data-k="'+esc(i.k)+'">'+T("Quitar")+'</button></span></div>'});
+el("n").textContent=n;el("ab").textContent=user?T("Salir"):T("Entrar");el("at").textContent=u?T("Iniciar sesión"):T("Crear cuenta");el("ab2").textContent=u?T("Iniciar sesión"):T("Crear cuenta");el("sw").textContent=u?T("Crear cuenta"):T("Ya tengo cuenta");el("pw").autocomplete=u?"current-password":"new-password";
+el("cl2").innerHTML=h||'<p>'+(L==="en"?"Your cart is empty. Add something from the deals.":"Tu carrito está vacío. Agrega algo de las ofertas.")+'</p>';el("ct").textContent=items.length?T("Total")+": "+m(t):"";el("nt").textContent=user||!items.length?"":T("Inicia sesión para guardar tu carrito.")}
+async function add(p,k){var it=items.find(function(x){return x.k===k});if(it)it.q++;else{it={k:k,q:1,p:p};items.push(it)}ui();toast((L==="en"?p.en:p.es)+" "+(L==="en"?"added to cart":"agregado al carrito"));
+if(sb&&user&&p.id!==undefined){var r=await sb.from("carrito_items").upsert({user_id:user.id,producto_id:p.id,cantidad:it.q},{onConflict:"user_id,producto_id"});if(r.error)toast(r.error.message)}}
+async function sync(){if(!sb||!user)return;var r=await sb.from("carrito_items").select("producto_id,cantidad");if(r.error)return;var mp={},up=[];(r.data||[]).forEach(function(x){mp[x.producto_id]=x.cantidad});items.forEach(function(i){if(i.p.id!==undefined)mp[i.p.id]=(mp[i.p.id]||0)+i.q});items=[];
+cur.forEach(function(p){if(p.id!==undefined&&mp[p.id]){items.push({k:p.id,q:mp[p.id],p:p});up.push({user_id:user.id,producto_id:p.id,cantidad:mp[p.id]})}});if(up.length)await sb.from("carrito_items").upsert(up,{onConflict:"user_id,producto_id"});ui()}
+el("prods").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;var p=cur[b.dataset.i];add(p,p.id!==undefined?p.id:"s"+b.dataset.i)});
+el("cl2").addEventListener("click",async function(e){var b=e.target.closest("button");if(!b)return;var k=b.dataset.k,it=items.find(function(x){return String(x.k)===k});items=items.filter(function(x){return String(x.k)!==k});ui();if(sb&&user&&it&&it.p.id!==undefined)await sb.from("carrito_items").delete().eq("producto_id",it.p.id)});
+el("cartBtn").addEventListener("click",function(){el("cd").showModal()});
+el("x1").onclick=function(){el("dlg").close()};el("x2").onclick=function(){el("cd").close()};
+el("ab").onclick=async function(){if(user){if(sb)await sb.auth.signOut();return}el("am").textContent="";el("dlg").showModal()};
+el("sw").onclick=function(){md=md==="in"?"up":"in";el("am").textContent="";ui()};
+el("af").onsubmit=async function(e){e.preventDefault();var am=el("am");if(!sb){am.textContent=T("Falta conectar Supabase: completa SB_URL y SB_KEY en el archivo.");return}
+var cr={email:el("em").value.trim(),password:el("pw").value},r=md==="up"?await sb.auth.signUp(cr):await sb.auth.signInWithPassword(cr);el("pw").value="";
+if(r.error){am.textContent=r.error.message;return}if(md==="up"&&!r.data.session){am.textContent=T("Revisa tu correo para confirmar la cuenta.");return}el("dlg").close()};
+el("lg").addEventListener("click",function(){L=L==="en"?"es":"en";try{localStorage.setItem("mer-lang",L)}catch(e){}tr()});
+el("reg").addEventListener("change",sp);
+walk();tr();
+(async function(){try{
+ if(!window.supabase||SB_URL.indexOf("TU-PROYECTO")>-1)return;
+ sb=supabase.createClient(SB_URL,SB_KEY);
+ sb.auth.onAuthStateChange(function(ev,s){user=s?s.user:null;if(user)setTimeout(sync,0);else items=[];ui()});
+ var r=await sb.from("productos").select("id,nombre_es,nombre_en,precio,precio_anterior,dias_min,dias_max,categorias(nombre)").eq("activo",true).order("id").limit(60);
+ if(!r.error&&r.data&&r.data.length){cur=r.data.map(function(p){return{id:p.id,es:p.nombre_es,en:p.nombre_en,cat:p.categorias?p.categorias.nombre:"",price:Number(p.precio),old:p.precio_anterior?Number(p.precio_anterior):null,a:p.dias_min,b:p.dias_max}});stat="Catálogo cargado desde la base de datos.";tr()}
+ var seen=false;try{seen=sessionStorage.getItem("mer-seen")}catch(e){}
+ if(!seen){try{sessionStorage.setItem("mer-seen","1")}catch(e){}await sb.from("visitas").insert({pagina:"inicio",idioma:L})}
+}catch(e){console.error(e)}})();
+</script>
+</body>
+</html>
