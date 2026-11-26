@@ -12,6 +12,40 @@ services:
       - dbdata:/var/lib/postgresql/data
       - tsdata:/var/lib/postgresql/tablespaces
       - ./sql/00_init.sql:/docker-entrypoint-initdb.d/00_init.sql
+
+  grafana:
+    image: grafana/grafana
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_PASSWORD}
+    ports:
+      - "127.0.0.1:3000:3000"
+    volumes:
+      - grafanadata:/var/lib/grafana
+    depends_on:
+      - db
+
+  dynamodb:
+    image: amazon/dynamodb-local
+    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath /home/dynamodblocal/data"
+    user: root
+    ports:
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - dynamodata:/home/dynamodblocal/data
+
+  neo4j:
+    image: neo4j:5
+    environment:
+      NEO4J_AUTH: ${NEO4J_USER}/${NEO4J_PASSWORD}
+    ports:
+      - "127.0.0.1:7474:7474"
+      - "127.0.0.1:7687:7687"
+    volumes:
+      - neo4jdata:/data
+
 volumes:
   dbdata:
   tsdata:
+  grafanadata:
+  dynamodata:
+  neo4jdata:
